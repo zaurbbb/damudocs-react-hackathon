@@ -1,6 +1,7 @@
 import {useState} from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import Api from "../../../../api";
 
 const AdminCreateMedRecordPage = () => {
     const [medRecordName, setMedRecordName] = useState("");
@@ -9,13 +10,11 @@ const AdminCreateMedRecordPage = () => {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
 
-    // Handling the name change
     const handleName = (e) => {
         setMedRecordName(e.target.value);
         setSubmitted(false);
     };
 
-    // Handling the IIN change
     const handleCategory = (e) => {
         setMedRecordCategory(e.target.value);
         setSubmitted(false);
@@ -27,8 +26,15 @@ const AdminCreateMedRecordPage = () => {
         if (medRecordName === '' || medRecordCategory === '') {
             setError(true);
         } else {
-            setSubmitted(true);
-            setError(false);
+            Api.post('/record/createRecord', {
+                title: medRecordName,
+                fields: medRecordCategory.split(',')
+            }).then(() => {
+                setSubmitted(true);
+                setError(false);
+            }).catch((e) => {
+                setError(true);
+            });
         }
     };
 
@@ -41,7 +47,7 @@ const AdminCreateMedRecordPage = () => {
                     display: submitted ? '' : 'none',
                     fontSize: '0.5rem',
                 }}>
-                <h1>Doctor {medRecordName} successfully registered!!</h1>
+                <h1>Form {medRecordName} successfully registered!!</h1>
             </div>
         );
     };
@@ -76,7 +82,7 @@ const AdminCreateMedRecordPage = () => {
                     <Grid item xs={12}>
                         <TextField
                             style={{width: '100%'}}
-                            label="Введите название мед. записи"
+                            label="Введите название мед. форму"
                             variant="outlined"
                             type="text"
                             name="doctorFullName"
@@ -87,7 +93,7 @@ const AdminCreateMedRecordPage = () => {
                     <Grid item xs={12}>
                         <TextField
                             style={{width: '100%'}}
-                            label="Введите разделы мед. записи через запятую"
+                            label="Введите разделы мед. формы через запятую"
                             variant="outlined"
                             type="text"
                             name="doctorIIN"

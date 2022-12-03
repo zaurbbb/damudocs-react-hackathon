@@ -1,14 +1,10 @@
+import React from "react";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {Button, ButtonGroup, createTheme, ThemeProvider} from "@mui/material";
+import {createTheme, ThemeProvider} from "@mui/material";
 import './app.css'
-import AdminLoginPage from "./components/pages/admin/AdminLoginPage/AdminLoginPage";
-import StartPage from "./components/pages/StartPage/AdminHomePage";
-import AdminNavbar from "./components/elements/AdminNavbar/AdminNavbar";
-import DoctorNavbar from "./components/elements/DoctorNavbar/DoctorNavbar";
-import AdminDoctorsListPage from "./components/pages/admin/AdminDoctorsListPage/AdminDoctorsListPage";
-import AdminCreateDoctorPage from "./components/pages/admin/AdminCreateDoctorPage/AdminCreateDoctorPage";
-import AdminEditDoctorPage from "./components/pages/admin/AdminEditDoctorPage/AdminEditDoctorPage";
+import StartPage from "./components/pages/StartPage/StartPage";
 import AdminPage from "./components/pages/admin/AdminPage";
+import DoctorPage from "./components/pages/doctor/DoctorPage";
 
 const theme = createTheme({
     palette: {
@@ -21,10 +17,11 @@ const theme = createTheme({
 function App() {
     return (
         <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<StartPage/>}/>
+            </Routes>
             <AdminPage/>
-                {/*doctor page*/}
-                {/*<Route path="/doctor/" element={<HomePage/>}/>*/}
-                {/*<Route path="/doctor/login" element={<AdminLoginPage/>}/>*/}
+            <DoctorPage/>
 
         </BrowserRouter>
     );

@@ -1,7 +1,6 @@
 import {useState} from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Box, Button, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
-import doctors from '../../doctors';
 
 const AdminCreateDoctorPage = () => {
     const [doctorFullName, setDoctorFullName] = useState("");

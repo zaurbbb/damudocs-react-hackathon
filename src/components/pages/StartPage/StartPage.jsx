@@ -4,19 +4,19 @@ const StartPage = () => {
 
     return (
         <div>
-            <p>Welcome to your DamuDocs. Who are you?</p>
+            <h2>Добро пожаловать на DamuDocs! Кем вы являетесь?</h2>
             <Button
-                href="/doctor"
+                href="/doctor/dashboard"
                 variant="contained"
                 sx={{ mr: 5 }}
             >
-                Doctor
+                Доктор
             </Button>
             <Button
                 href="/admin/doctorsList"
                 variant="contained"
             >
-                Admin
+                Администратор
             </Button>
         </div>
     );
