@@ -1,0 +1,99 @@
+@import "variables"
+
+body
+  font-family: $montserratRegular
+  padding: 1rem 4rem
+  background: #F0F1F2
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+  -webkit-box-shadow: 0 0 0 30px white inset !important
+
+
+//кнопки на странице
+.button
+  border-radius: 8px
+  border: none
+  display: flex
+  justify-content: center
+  align-items: center
+  &_primary
+    background: $primary
+    color: white
+  &_primary-outline
+    border: px solid $primary
+  &_secondary
+    background: $lightSecondary
+    color: white
+  &_secondary-outline
+    border: 2px solid $lightSecondary
+    color: $lightSecondary
+    background: white
+    &:hover
+      border: 3px solid $primary
+      color: $primary
+  &_light
+    background: white
+    color: #484848
+  &_dark
+    background: #000000
+    color: $lightSecondary
+
+//главные блоки на странице
+main
+  display: flex
+  flex-direction: column
+  gap: 3rem
+  margin: 1rem 0 3rem 0
+  justify-content: space-between
+
+//блок свайпера
+.swiper
+  position: relative!important
+  margin-left: auto
+  margin-right: auto
+//слайд свайпера
+.swiper-slide
+  text-align: center
+  font-size: 18px
+  background: #F0F1F2
+  border: 0.1px solid #F0F1F2
+
+//стрелки для скроллинга свайпера
+.video-review-slider-button-prev,
+.video-review-slider-button-next,
+.review-slider-button-prev,
+.review-slider-button-next
+  width: 1.7rem!important
+  height: 1.7rem!important
+  z-index: 2!important
+
+//позиционирование стрелок для скроллинга свайпера
+.video-review-slider-button-prev
+  left: 1% !important
+.video-review-slider-button-next
+  right: 1% !important
+
+.video-review-slider-button-next,
+.video-review-slider-button-prev
+  &::after
+    font-size: 25px!important
+    font-weight: 700
+
+//пагинация
+.swiper-pagination
+  display: flex!important
+  @include flexAlignment(center, center, center)
+  height: 1rem!important
+
+.swiper-pagination-bullet
+  width: 10px!important
+  height: 10px!important
+  margin: 0 20px!important
+  transition: 0.2s ease-in-out!important
+  border-radius: 1rem!important
+
+.swiper-pagination-bullet-active
+  background: $primary!important

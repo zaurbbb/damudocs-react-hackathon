@@ -1,0 +1,85 @@
+@import 'variables'
+
+//импорт шрифтов
+@font-face
+  font-family: 'MontserratBlack'
+  src: url('./fonts/Montserrat-Black.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratBold'
+  src: url('./fonts/Montserrat-Bold.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratExtraBold'
+  src: url('./fonts/Montserrat-ExtraBold.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratExtraLight'
+  src: url('./fonts/Montserrat-ExtraLight.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratLight'
+  src: url('./fonts/Montserrat-Light.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratMedium'
+  src: url('./fonts/Montserrat-Medium.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratRegular'
+  src: url('./fonts/Montserrat-Regular.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratSemiBold'
+  src: url('./fonts/Montserrat-SemiBold.ttf') format('truetype')
+
+@font-face
+  font-family: 'MontserratThin'
+  src: url('./fonts/Montserrat-Thin.ttf') format('truetype')
+
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+//меняем значения фонт сайза по медиа квери чтобы работать с rem
+html
+  font-size: 25.00px
+
+body
+  background: #f1faf9
+  text-align: center
+  margin: auto 0
+
+@media (max-width: $md)
+  html
+    font-size: 20.00px
+
+@media (max-width: $xs)
+  html
+    font-size: 16.00px
+
+/* ширина скроллбара */
+::-webkit-scrollbar
+  opacity: 0.5
+  width: 5px
+
+
+/* фон скроллбара */
+::-webkit-scrollbar-track
+  opacity: 0.5
+  background: #f1f1f1
+
+
+/* фон двигающегося скролббар */
+::-webkit-scrollbar-thumb
+  background: #C0C0C0
+
+
+/* эффект при наведении на двигающийся скролббар*/
+::-webkit-scrollbar-thumb:hover
+  opacity: 1
+  background: $primary
+
+
