@@ -1,7 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
 .Container {
   width: 4rem;
   height: 100vh;
   background: #111111;
+  display: flex;
+  flex-direction: column;
+  animation: showLeft 1.2s;
+  position: relative;
+}
+.Container div {
+  display: flex;
+  flex-direction: column;
+}
+.Container div:nth-child(1) {
+  width: 4rem;
+  padding: 0.6rem 0;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-size: 1.44rem;
+  letter-spacing: 1px;
+}
+.Container div:nth-child(2), .Container div:nth-child(3) {
+  height: 100% !important;
+}
+.Container div:nth-child(2) a, .Container div:nth-child(2) button, .Container div:nth-child(2) .inActiveLink, .Container div:nth-child(3) a, .Container div:nth-child(3) button, .Container div:nth-child(3) .inActiveLink {
+  width: 4rem;
+  padding: 1rem 0;
+  border-radius: 0 !important;
+  transition: all 0.3s !important;
+}
+.Container div:nth-child(2) a img, .Container div:nth-child(2) button img, .Container div:nth-child(2) .inActiveLink img, .Container div:nth-child(3) a img, .Container div:nth-child(3) button img, .Container div:nth-child(3) .inActiveLink img {
+  width: 35%;
+}
+.Container div:nth-child(3) {
+  justify-content: flex-end;
+}
+
+.activeLink {
+  background: #ABE0BA;
+}
+.activeLink img {
+  filter: grayscale(1) invert(1);
+}
+
+.inActiveLink {
+  background: transparent;
+}
+
+@keyframes showLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=SideBar.module.css.map */

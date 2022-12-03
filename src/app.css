@@ -14,4 +14,8 @@ input:-webkit-autofill:active {
   padding: 0 4rem;
 }
 
+.doctor-container {
+  position: relative;
+}
+
 /*# sourceMappingURL=app.css.map */

@@ -1,6 +1,48 @@
 @import "../../../../variables"
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap')
 
 .Container
   width: 4rem
   height: 100vh
   background: $dark
+  display: flex
+  flex-direction: column
+  animation: showLeft 1.2s
+  position: relative
+  div
+    display: flex
+    flex-direction: column
+    &:nth-child(1)
+      width: 4rem
+      padding: 0.6rem 0
+      font-family: 'Ubuntu', sans-serif
+      color: white
+      font-size: $fs2
+      letter-spacing: 1px
+    &:nth-child(2), &:nth-child(3)
+      height: 100% !important
+      a, button, .inActiveLink
+        width: 4rem
+        padding: 1rem 0
+        border-radius: 0!important
+        transition: all .3s!important
+        img
+          width: 35%
+    &:nth-child(3)
+      justify-content: flex-end
+
+.activeLink
+  background: $primary
+  img
+    filter: grayscale(1) invert(1)
+
+.inActiveLink
+  background: transparent
+
+
+@keyframes showLeft
+  from
+    opacity: 0
+    transform: translateX(-50px)
+  to
+    opacity: 1

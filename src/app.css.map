@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["app.sass","variables.sass"],"names":[],"mappings":"AAEA;EACE,aCOkB;EDNlB;;;AAEF;AAAA;AAAA;AAAA;EAIE;;;AAGF;EACE","file":"app.css"}
+{"version":3,"sourceRoot":"","sources":["app.sass","variables.sass"],"names":[],"mappings":"AAEA;EACE,aCOkB;EDNlB;;;AAEF;AAAA;AAAA;AAAA;EAIE;;;AAGF;EACE;;;AAEF;EACE","file":"app.css"}

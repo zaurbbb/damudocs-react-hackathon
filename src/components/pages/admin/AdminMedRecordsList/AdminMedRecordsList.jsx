@@ -52,8 +52,8 @@ const AdminMedRecordsListPage = () => {
                 <List>
                     {records.map((record) => (
                         <ListItem
-                            key={doctor.id}
-                            sx={{borderTop: `${doctor.id === 1 ? '1px solid black' : ''}`, borderBottom: '1px solid black'}}
+                            key={record.id}
+                            sx={{borderTop: `${record.id === 1 ? '1px solid black' : ''}`, borderBottom: '1px solid black'}}
                             secondaryAction={
                                 <Box sx={{ml: 50}}>
                                     <IconButton edge="end" aria-label="pdf">
