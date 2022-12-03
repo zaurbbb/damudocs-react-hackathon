@@ -1,6 +1,7 @@
 import {useState} from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import Api from "../../../../api";
 
 const AdminCreateDoctorPage = () => {
     const [doctorFullName, setDoctorFullName] = useState("");
@@ -42,8 +43,18 @@ const AdminCreateDoctorPage = () => {
         if (doctorFullName === '' || doctorIIN === '' || doctorID === '' || password === '') {
             setError(true);
         } else {
-            setSubmitted(true);
-            setError(false);
+            Api.post('/users/register', {
+                name: doctorFullName,
+                IIN: doctorIIN,
+                id: doctorID,
+                password,
+                role
+            }).then(() => {
+                setSubmitted(true);
+                setError(false);
+            }).catch((e) => {
+                setError(true);
+            })
         }
     };
 
@@ -149,13 +160,13 @@ const AdminCreateDoctorPage = () => {
                                 onChange={handleChange}
                                 sx={{textAlign: 'left'}}
                             >
-                                <MenuItem value={10}>Терапевт</MenuItem>
-                                <MenuItem value={20}>Окулист</MenuItem>
-                                <MenuItem value={30}>Кардиолог</MenuItem>
-                                <MenuItem value={40}>Онколог</MenuItem>
-                                <MenuItem value={50}>Уролог</MenuItem>
-                                <MenuItem value={60}>Педиатр</MenuItem>
-                                <MenuItem value={70}>Психиатр</MenuItem>
+                                <MenuItem value={"Терапевт"}>Терапевт</MenuItem>
+                                <MenuItem value={"Окулист"}>Окулист</MenuItem>
+                                <MenuItem value={"Кардиолог"}>Кардиолог</MenuItem>
+                                <MenuItem value={"Онколог"}>Онколог</MenuItem>
+                                <MenuItem value={"Уролог"}>Уролог</MenuItem>
+                                <MenuItem value={"Педиатр"}>Педиатр</MenuItem>
+                                <MenuItem value={"Психиатр"}>Психиатр</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>

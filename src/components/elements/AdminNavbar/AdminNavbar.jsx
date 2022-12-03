@@ -31,7 +31,7 @@ const AdminNavbar = () => {
                     href="/admin/createMedRecord"
                     variant="contained"
                 >
-                    Создать Мед. Запись
+                    Создать Мед. Форму
                 </Button>
                 <Button
                     color="error"

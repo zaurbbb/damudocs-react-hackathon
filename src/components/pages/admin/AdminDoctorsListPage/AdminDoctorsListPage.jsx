@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {styled} from '@mui/material/styles';
 import {useEffect, useState} from "react";
-import {Navigate} from "react-router-dom";
 import {
     Avatar, Box,
     Grid,
@@ -15,7 +14,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-import doctors from '../../doctors';
+import Api from "../../../../api";
 
 const Demo = styled('div')(({theme}) => ({
     backgroundColor: theme.palette.background.paper,
@@ -23,54 +22,64 @@ const Demo = styled('div')(({theme}) => ({
 
 const AdminDoctorsListPage = () => {
     const [authenticated, setAuthenticated] = useState(null);
+    const [doctorList, setDoctorList] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
-    const deleteDoctor = (id) => {
-        //ur code
+    const deleteDoctor = async (id) => {
+        try {
+            await Api.delete('/users/deleteDoctorById/' + id);
+            window.location.reload();
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("authenticated");
-        if (loggedInUser) {
-            setAuthenticated(loggedInUser);
+        async function fetch() {
+            try {
+                const res = await Api.get('/users/getAllDoctors');
+                setDoctorList(res.data);
+            } catch (e) {
+                console.log(e)
+            }
         }
-    }, []);
 
-    if (!authenticated) {
-        return <Navigate replace to="/admin/doctorsList"/>;
-    } else {
-        return (
-            <Grid item sx={{mt: 5}}>
-                <Demo>
-                    <List>
-                        {doctors.map((doctor) => (
-                            <ListItem
-                                key={doctor.id}
-                                secondaryAction={
-                                    <Box>
-                                        <IconButton edge="end" aria-label="delete" href="/admin/editDoctor">
-                                            <EditIcon/>
-                                        </IconButton>
-                                        <IconButton edge="end" aria-label="delete">
-                                            <DeleteIcon onClick={() => deleteDoctor(doctor.id)}/>
-                                        </IconButton>
-                                    </Box>
+        fetch().then();
+    }, [doctorList]);
 
-                                }
-                            >
 
-                                <AccountCircleIcon sx={{mr: 2}}/>
+    return (
+        <Grid item sx={{mt: 5}}>
+            <Demo>
+                <List>
+                    {doctorList.map((doctor) => (
+                        <ListItem
+                            key={doctor.id}
+                            secondaryAction={
+                                <Box>
+                                    <IconButton edge="end" aria-label="delete" href="/admin/editDoctor">
+                                        <EditIcon/>
+                                    </IconButton>
+                                    <IconButton edge="end" aria-label="delete">
+                                        <DeleteIcon onClick={() => deleteDoctor(doctor.id)}/>
+                                    </IconButton>
+                                </Box>
 
-                                <ListItemText
-                                    primary={`${doctor.name}`}
-                                />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Demo>
-            </Grid>
-        );
-    }
-};
+                            }
+                        >
+
+                            <AccountCircleIcon sx={{mr: 2}}/>
+
+                            <ListItemText
+                                primary={`${doctor.id}) ${doctor.name}, ${doctor.IIN}, ${doctor.role}`}
+                            />
+                        </ListItem>
+                    ))}
+                </List>
+            </Demo>
+        </Grid>
+    );
+}
 
 
 export default AdminDoctorsListPage;

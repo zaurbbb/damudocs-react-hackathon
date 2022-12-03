@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {styled} from '@mui/material/styles';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {
     Avatar, Box, Button,
     Grid,
@@ -14,32 +14,53 @@ import ArticleIcon from '@mui/icons-material/Article';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 
-import doctors from '../../doctors';
+import Api from "../../../../api";
 
 const Demo = styled('div')(({theme}) => ({
     backgroundColor: theme.palette.background.paper,
 }));
 
+
 const AdminMedRecordsListPage = () => {
     const [authenticated, setAuthenticated] = useState(null);
+    const [records, setRecords] = useState([]);
 
-    const deleteDoctor = (id) => {
-        //ur code
+    useEffect(() => {
+        async function fetch() {
+            try {
+                const res = await Api.get('/med/getAllForms');
+                setRecords(res.data);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        fetch().then();
+    }, [records]);
+
+
+    const deleteDoctor = async (id) => {
+        try {
+            await Api.delete('/med/deleteFormById/' + id);
+            window.location.reload();
+        } catch (e) {
+            console.log(e)
+        }
     }
     return (
         <Grid item sx={{mt: 5}}>
             <Demo>
                 <List>
-                    {doctors.map((doctor) => (
+                    {records.map((record) => (
                         <ListItem
-                            key={doctor.id}
+                            key={record.id}
                             secondaryAction={
                                 <Box sx={{ml: 50}}>
-                                    <IconButton edge="end" aria-label="delete">
-                                        <PictureAsPdfIcon onClick={() => deleteDoctor(doctor.id)}/>
+                                    <IconButton edge="end" aria-label="pdf">
+                                        <PictureAsPdfIcon onClick={() => window.location.href = record.pdf_url}/>
                                     </IconButton>
                                     <IconButton edge="end" aria-label="delete">
-                                        <DeleteIcon onClick={() => deleteDoctor(doctor.id)}/>
+                                        <DeleteIcon onClick={() => deleteDoctor(record.id)}/>
                                     </IconButton>
                                 </Box>
 
@@ -49,7 +70,7 @@ const AdminMedRecordsListPage = () => {
                             <ListItemText
                                 sx={{mr: 8, ml: 2}}
                                 style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}
-                                primary={`#1. Сведение о цероз печени у Данила Еслямгалиева от Калиматова Акжана.Сведение о цероз печени у Данила Еслямгалиева от Калиматова Акжана. `}
+                                primary={`#${record.id}. ${record.form_type}. Доктор: ${record.doctor.name}. Пациент: ...`}
                             />
                         </ListItem>
                     ))}
