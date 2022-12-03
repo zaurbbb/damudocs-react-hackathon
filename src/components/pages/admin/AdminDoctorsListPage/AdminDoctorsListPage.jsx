@@ -67,6 +67,7 @@ const AdminDoctorsListPage = () => {
                             }
                         >
 
+>>>>>>> origin/master
                             <AccountCircleIcon sx={{mr: 2}}/>
 
                             <ListItemText
