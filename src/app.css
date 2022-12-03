@@ -8,7 +8,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
 }
 
 .button {
@@ -19,11 +19,11 @@ input:-webkit-autofill:active {
   align-items: center;
 }
 .button_primary {
-  background: #FC4D4D;
+  background: #ffb0b0;
   color: white;
 }
 .button_primary-outline {
-  border: px solid #FC4D4D;
+  border: px solid #ffb0b0;
 }
 .button_secondary {
   background: #AFAFAF;
@@ -35,8 +35,8 @@ input:-webkit-autofill:active {
   background: white;
 }
 .button_secondary-outline:hover {
-  border: 3px solid #FC4D4D;
-  color: #FC4D4D;
+  border: 3px solid #ffb0b0;
+  color: #ffb0b0;
 }
 .button_light {
   background: white;
@@ -108,7 +108,7 @@ main {
 }
 
 .swiper-pagination-bullet-active {
-  background: #FC4D4D !important;
+  background: #ffb0b0 !important;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import {Box, Button, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import {Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 
 const AdminCreateDoctorPage = () => {
     const [doctorFullName, setDoctorFullName] = useState("");
@@ -83,63 +83,83 @@ const AdminCreateDoctorPage = () => {
     };
 
     return (
-        <div>
+        <>
             <form onSubmit={handleSubmit}>
-                <Box
-                    sx={{mt: 6, mb: 4, padding: '0 10rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem'}}
+                <Grid
+                    container
+                    spacing={3}
+                    sx={{
+                        my: 4,
+                        padding: '0 12rem',
+
+                    }}
                 >
-                    <TextField
-                        label="Введите ФИО"
-                        variant="outlined"
-                        type="text"
-                        name="doctorFullName"
-                        value={doctorFullName}
-                        onChange={handleFullName}
-                    />
-                    <TextField
-                        label="Введите ИИН"
-                        variant="outlined"
-                        type="text"
-                        name="doctorIIN"
-                        value={doctorIIN}
-                        onChange={handleIIN}
-                    />
-                    <TextField
-                        label="Введите ID"
-                        variant="outlined"
-                        type="text"
-                        name="doctorID"
-                        value={doctorID}
-                        onChange={handleID}
-                    />
-                    <TextField
-                        label="Введите пароль"
-                        variant="outlined"
-                        type="password"
-                        name="doctorPassword"
-                        value={password}
-                        onChange={handlePassword}
-                    />
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Определите роль</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={role}
-                            label="Определите роль"
-                            onChange={handleChange}
-                            sx={{textAlign: 'left'}}
-                        >
-                            <MenuItem value={10}>Терапевт</MenuItem>
-                            <MenuItem value={20}>Окулист</MenuItem>
-                            <MenuItem value={30}>Кардиолог</MenuItem>
-                            <MenuItem value={40}>Онколог</MenuItem>
-                            <MenuItem value={50}>Уролог</MenuItem>
-                            <MenuItem value={60}>Педиатр</MenuItem>
-                            <MenuItem value={70}>Психиатр</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
+                    <Grid item xs={6}>
+                        <TextField
+                            style={{width: '100%'}}
+                            label="Введите ФИО"
+                            variant="outlined"
+                            type="text"
+                            name="doctorFullName"
+                            value={doctorFullName}
+                            onChange={handleFullName}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            style={{width: '100%'}}
+                            label="Введите ИИН"
+                            variant="outlined"
+                            type="text"
+                            name="doctorIIN"
+                            value={doctorIIN}
+                            onChange={handleIIN}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            style={{width: '100%'}}
+                            label="Введите ID"
+                            variant="outlined"
+                            type="text"
+                            name="doctorID"
+                            value={doctorID}
+                            onChange={handleID}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            style={{width: '100%'}}
+                            label="Введите пароль"
+                            variant="outlined"
+                            type="password"
+                            name="doctorPassword"
+                            value={password}
+                            onChange={handlePassword}
+                        />
+                    </Grid>
+                    <Grid item xs={12} >
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Определите роль</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={role}
+                                label="Определите роль"
+                                onChange={handleChange}
+                                sx={{textAlign: 'left'}}
+                            >
+                                <MenuItem value={10}>Терапевт</MenuItem>
+                                <MenuItem value={20}>Окулист</MenuItem>
+                                <MenuItem value={30}>Кардиолог</MenuItem>
+                                <MenuItem value={40}>Онколог</MenuItem>
+                                <MenuItem value={50}>Уролог</MenuItem>
+                                <MenuItem value={60}>Педиатр</MenuItem>
+                                <MenuItem value={70}>Психиатр</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Grid>
+                </Grid>
                 <div className="messages">
                     {errorMessage()}
                     {successMessage()}
@@ -154,7 +174,7 @@ const AdminCreateDoctorPage = () => {
                     Submit
                 </Button>
             </form>
-        </div>
+        </>
     );
 };
 

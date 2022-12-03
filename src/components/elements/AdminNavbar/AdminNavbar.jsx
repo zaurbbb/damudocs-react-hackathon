@@ -14,18 +14,27 @@ const AdminNavbar = () => {
                     Список Врачей
                 </Button>
                 <Button
+                    color="success"
                     href="/admin/createDoctor"
                     variant="contained"
                 >
                     Добавить Доктора
                 </Button>
                 <Button
-                    href="/admin/allDocs"
+                    href="/admin/medRecordsList"
                     variant="contained"
                 >
-                    Мед. записи
+                    Список Мед. Записей
                 </Button>
                 <Button
+                    color="success"
+                    href="/admin/createMedRecord"
+                    variant="contained"
+                >
+                    Создать Мед. Запись
+                </Button>
+                <Button
+                    color="error"
                     href="/"
                     variant="contained"
                 >

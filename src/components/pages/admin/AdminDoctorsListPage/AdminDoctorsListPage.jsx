@@ -36,7 +36,7 @@ const AdminDoctorsListPage = () => {
     }, []);
 
     if (!authenticated) {
-        return <Navigate replace to="/admin/doctorsList" />;
+        return <Navigate replace to="/admin/doctorsList"/>;
     } else {
         return (
             <Grid item sx={{mt: 5}}>
@@ -47,7 +47,7 @@ const AdminDoctorsListPage = () => {
                                 key={doctor.id}
                                 secondaryAction={
                                     <Box>
-                                        <IconButton edge="end" aria-label="delete"  href="/admin/editDoctor">
+                                        <IconButton edge="end" aria-label="delete" href="/admin/editDoctor">
                                             <EditIcon/>
                                         </IconButton>
                                         <IconButton edge="end" aria-label="delete">
@@ -57,11 +57,9 @@ const AdminDoctorsListPage = () => {
 
                                 }
                             >
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <AccountCircleIcon/>
-                                    </Avatar>
-                                </ListItemAvatar>
+
+                                <AccountCircleIcon sx={{mr: 2}}/>
+
                                 <ListItemText
                                     primary={`${doctor.name}`}
                                 />
