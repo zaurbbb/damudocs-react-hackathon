@@ -44,7 +44,7 @@ const AdminDoctorsListPage = () => {
             }
         }
         fetch().then();
-    }, [doctorList]);
+    }, []);
 
 
     return (

@@ -70,7 +70,7 @@ const AdminMedRecordsListPage = () => {
                             <ListItemText
                                 sx={{mr: 8, ml: 2}}
                                 style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}
-                                primary={`#${record.id}. ${record.form_type}. Доктор: ${record.doctor.name}. Пациент: ...`}
+                                primary={`#${record.id}. ${record.form_type}. Доктор: ${record.doctor.name}. Пациент: ${record.ptn_name}`}
                             />
                         </ListItem>
                     ))}
