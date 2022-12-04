@@ -1,0 +1,61 @@
+.numbersGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.numbersGroup div {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.numbersGroup div:nth-child(5) {
+  background: #111111;
+  outline: 5px solid black;
+  color: white;
+}
+
+.CardsCollection {
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  row-gap: 1rem;
+  column-gap: 10px;
+}
+.CardsCollection .Card {
+  display: flex;
+}
+.CardsCollection .Card div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 0;
+}
+.CardsCollection .Card div:first-child {
+  width: 30%;
+  background: #E1F2EC;
+  justify-content: center;
+  align-items: center;
+}
+.CardsCollection .Card div:first-child span:first-child {
+  color: #7E7E7E;
+  font-size: 1rem;
+}
+.CardsCollection .Card div:first-child span:last-child {
+  font-size: 1.728rem;
+}
+.CardsCollection .Card div:last-child {
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0 20px;
+}
+.CardsCollection .Card div:last-child span:first-child, .CardsCollection .Card div:last-child span:nth-child(2) {
+  color: #555555;
+  font-size: 0.694rem;
+}
+.CardsCollection .Card div:last-child span:last-child {
+  font-size: 0.833rem;
+}
+
+/*# sourceMappingURL=LoginStyles.module.css.map */

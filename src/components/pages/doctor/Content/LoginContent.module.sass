@@ -1,0 +1,38 @@
+@import "../../../../variables"
+
+.Container
+  display: flex
+  width: 100%
+
+
+.GreenBlocks
+  width: 45%
+  height: 100vh
+  animation: showLeft 1.2s
+  animation-delay: .2s
+
+.UpperGreenBlock, .LowerGreenBlock
+  height: 50%
+  overflow: hidden
+  padding: 1rem
+  text-align: left
+
+.UpperGreenBlock
+  background-color: $secondary
+
+.LowerGreenBlock
+  height: 50%
+  background-color: $primary
+
+.BigBlock
+  animation: showLeft 1.2s
+
+
+
+@keyframes showLeft
+  from
+    opacity: 0
+    transform: translateX(-50px)
+  to
+    opacity: 1
+
