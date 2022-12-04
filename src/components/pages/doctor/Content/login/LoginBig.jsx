@@ -3,7 +3,7 @@ import {Avatar, Box, Button, Checkbox, FormControlLabel, Grid, Paper, TextField,
 import {Copyright} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../../../../../redux/hooks";
 import {login} from "../../../../../redux/slices/auth";
-
+import css from './LoginStyles.module.css'
 
 const LoginBig = () => {
     const [password, setPassword] = useState(null);
@@ -43,7 +43,7 @@ const LoginBig = () => {
     };
 
     return (
-        <div>
+        <div className={css.Container}>
             <Typography component="h1" variant="h5">
                 Авторизация
             </Typography>
@@ -62,6 +62,7 @@ const LoginBig = () => {
                     autoFocus
                 />
                 <TextField
+                    sx={{my: 3}}
                     margin="normal"
                     required
                     fullWidth

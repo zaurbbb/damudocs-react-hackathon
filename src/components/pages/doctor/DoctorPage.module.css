@@ -1,6 +1,6 @@
 .Container {
   display: flex;
-  font-family: CascadiaCodePLExtraLight, sans-serif;
+  font-family: CascadiaCodePLExtraLight, sans-serif !important;
   font-weight: bolder;
 }
 .Container p {

@@ -1,51 +1,5 @@
 @import "../../../../../variables"
 
-.numbersGroup
-  display: flex
-  justify-content: space-between
-  div
-    width: 30px
-    height: 30px
-    display: flex
-    justify-content: center
-    align-items: center
-    &:nth-child(5)
-      background: #111111
-      outline: 5px solid black
-      color: white
-
-.CardsCollection
-  overflow: scroll
-  display: grid
-  grid-template-columns: 1fr 1fr
-  height: 100%
-  row-gap: 1rem
-  column-gap: 10px
-  .Card
-    display: flex
-    div
-      display: flex
-      flex-direction: column
-      height: 100%
-      padding: 20px 0
-      &:first-child
-        width: 30%
-        background: #E1F2EC
-        justify-content: center
-        align-items: center
-        span
-          &:first-child
-            color: #7E7E7E
-            font-size: $fs4
-          &:last-child
-            font-size: $fs1
-      &:last-child
-        justify-content: center
-        background-color: rgba(255, 255, 255, 0.7)
-        padding: 0 20px
-        span
-          &:first-child, &:nth-child(2)
-            color: #555555
-            font-size: $fs6
-          &:last-child
-            font-size: $fs5
+.Container
+  font-family: CascadiaCodePLExtraLight, sans-serif!important
+  padding: 8rem 3rem

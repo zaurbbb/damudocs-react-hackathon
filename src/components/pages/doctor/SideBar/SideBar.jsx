@@ -24,9 +24,11 @@ const SideBar = () => {
     return (
         <aside className={css.Container}>
             <div>
-                DU
-                <br/>
-                DC
+                <div>
+                    DU
+                    <br/>
+                    DC
+                </div>
             </div>
             <div>
                 <NavLink
@@ -36,17 +38,15 @@ const SideBar = () => {
                     <img src={icon1} alt="icon"/>
                 </NavLink>
                 <NavLink
-                    to="/doctor/patient"
+                    to="/doctor/login"
                     className={navData => navData.isActive ? css.activeLink : css.inActiveLink}
                 >
                     <img src={icon2} alt="icon"/>
                 </NavLink>
-                <NavLink
-                    to="/doctor/login"
-                    className={navData => navData.isActive ? css.activeLink : css.inActiveLink}
+                <Button onClick={handleClick('right')}
                 >
                     <img src={icon3} alt="icon"/>
-                </NavLink>
+                </Button>
                 <Button onClick={handleClick('right')}>
                     <img src={icon4} alt="icon"/>
                 </Button>

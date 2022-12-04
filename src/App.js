@@ -6,20 +6,13 @@ import StartPage from "./components/pages/StartPage/StartPage";
 import AdminPage from "./components/pages/admin/AdminPage";
 import DoctorPage from "./components/pages/doctor/DoctorPage";
 
-const theme = createTheme({
-    palette: {
-        secondary: {
-            main: '#E33E7F'
-        }
-    }
-});
-
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<StartPage/>}/>
             </Routes>
+
 
             <AdminPage/>
             <DoctorPage/>

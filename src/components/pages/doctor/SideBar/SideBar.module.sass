@@ -23,6 +23,8 @@
     &:nth-child(2), &:nth-child(3)
       height: 100% !important
       a, button, .inActiveLink
+        text-decoration: none
+        color: white
         width: 4rem
         padding: 1rem 0
         border-radius: 0!important
@@ -34,11 +36,15 @@
 
 .activeLink
   background: $primary
+  color: white
+  text-decoration: none
   img
     filter: grayscale(1) invert(1)
 
 .inActiveLink
   background: transparent
+  color: white
+  text-decoration: none
 
 
 @keyframes showLeft
