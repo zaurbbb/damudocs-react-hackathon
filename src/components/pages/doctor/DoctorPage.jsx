@@ -2,6 +2,7 @@ import React from 'react';
 import SideBar from "./SideBar/SideBar";
 import css from './DoctorPage.module.sass'
 import Content from "./Content/Content";
+import LoginContent from "./Content/LoginContent";
 
 const DoctorPage = () => {
     return (
@@ -14,7 +15,14 @@ const DoctorPage = () => {
                         <Content/>
                     </>
                     :
-                    <></>
+                    window.location.pathname === '/doctor/login'
+                        ?
+                        <>
+                            <SideBar/>
+                            <LoginContent/>
+                        </>
+                        :
+                        <></>
             }
         </div>
     );
