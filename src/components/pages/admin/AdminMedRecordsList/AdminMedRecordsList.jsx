@@ -35,7 +35,7 @@ const AdminMedRecordsListPage = () => {
         }
 
         fetch().then();
-    }, [records]);
+    }, []);
 
 
     const deleteDoctor = async (id) => {
