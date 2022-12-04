@@ -1,7 +1,7 @@
 .HistoriesContainer {
   margin: 1rem;
   padding: 1rem 1rem 2rem 1rem;
-  height: 50vh;
+  max-height: 50vh;
   width: 41rem;
   background-color: #F6F8F9;
   overflow-x: hidden;
