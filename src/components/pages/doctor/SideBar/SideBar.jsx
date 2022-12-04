@@ -43,12 +43,9 @@ const SideBar = () => {
                 >
                     <img src={icon2} alt="icon"/>
                 </NavLink>
-                <NavLink
-                    to="/doctor/medRecordsList"
-                    className={navData => navData.isActive ? css.activeLink : css.inActiveLink}
-                >
+                <Button onClick={handleClick('right')}>
                     <img src={icon3} alt="icon"/>
-                </NavLink>
+                </Button>
                 <Button onClick={handleClick('right')}>
                     <img src={icon4} alt="icon"/>
                 </Button>
