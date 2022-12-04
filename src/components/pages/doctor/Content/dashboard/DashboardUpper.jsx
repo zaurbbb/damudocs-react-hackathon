@@ -4,7 +4,7 @@ import API from "../../../../../api";
 
 
 const DashboardUpper = () => {
-    const [name, setName] = useState(null);
+    const [name, setName] = useState("Имя Фамилия");
     useEffect(() => {
         async function fetch() {
             try {
