@@ -1,8 +1,69 @@
 import React, {useState, useEffect} from 'react';
 import css from './DashboardStyles.module.sass'
-import {Button, FormControl, MenuItem, Select, TextField} from "@mui/material";
+import {
+    Box,
+    Button,
+    FormControl,
+    IconButton,
+    List,
+    ListItem,
+    ListItemText,
+    MenuItem,
+    Select,
+    TextField
+} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Api from "../../../../../api";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import {styled, alpha} from "@mui/material/styles";
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: '10rem',
+    width: '50%',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    marginLeft: '10rem',
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    marginLeft: '10rem',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
+            },
+        },
+    },
+}));
+
 
 const DashboardBig = () => {
     const [ptnName, setPtnName] = useState("");
@@ -12,6 +73,7 @@ const DashboardBig = () => {
     const [ptnNumber, setPtnNumber] = useState("");
     const [ptnDD, setPtnDD] = useState("");
     const [records, setRecords] = useState([]);
+    const [forms, setForms] = useState([]);
     const [selectedRecord, setSelectedRecord] = useState();
     const [doctorId, setDoctorId] = useState();
 
@@ -88,6 +150,19 @@ const DashboardBig = () => {
         fetch().then();
     }
 
+    useEffect(() => {
+        async function fetch() {
+            try {
+                const res = await Api.get('/med/getAllForms');
+                setForms(res.data);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        fetch().then();
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         async function fetch() {
@@ -152,6 +227,43 @@ const DashboardBig = () => {
 
     return (
         <div>
+            <div className={css.HistoriesContainer}>
+                <div>
+                    <p className="p-h1">История записей</p>
+                    <Search>
+                        <SearchIconWrapper>
+                            <SearchIcon />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="Поиск"
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
+                </div>
+                <div>
+                    <List>
+                        {forms.map((record) => (
+                            <ListItem
+                                key={record.id}
+                                secondaryAction={
+                                    <Box sx={{ml: 50}}>
+                                        <IconButton edge="end" aria-label="pdf">
+                                            <PictureAsPdfIcon onClick={() => window.location.href = record.pdf_url}/>
+                                        </IconButton>
+                                    </Box>
+
+                                }
+                            >
+                                <ListItemText
+                                    sx={{mr: 14}}
+                                    style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}
+                                    primary={`#${record.id}. ${record.form_type}. Доктор: ${record.doctor.name}. Пациент: ...`}
+                                />
+                            </ListItem>
+                        ))}
+                    </List>
+                </div>
+            </div>
             <div
                 className={css.FormContainer}
             >
