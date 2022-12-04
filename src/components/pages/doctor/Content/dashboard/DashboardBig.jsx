@@ -1,14 +1,12 @@
 import React from 'react';
+import css from './DashboardStyles.module.sass'
 
 const DashboardBig = () => {
     return (
         <div>
-            <div>
+            <div className={css.FormContainer}>
 
             </div>
-            <form action="">
-
-            </form>
         </div>
     );
 };
