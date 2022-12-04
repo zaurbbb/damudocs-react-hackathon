@@ -1,5 +1,13 @@
 .Container {
   display: flex;
+  font-family: CascadiaCodePLExtraLight, sans-serif;
+  font-weight: bolder;
+}
+.Container p {
+  margin: 0 0 20px 0;
+}
+.Container img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=DoctorPage.module.css.map */

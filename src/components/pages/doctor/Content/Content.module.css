@@ -1,0 +1,43 @@
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.GreenBlocks {
+  width: 45%;
+  height: 100vh;
+  animation: showLeft 1.2s;
+  animation-delay: 0.2s;
+}
+
+.UpperGreenBlock, .LowerGreenBlock {
+  height: 50%;
+  overflow: hidden;
+  padding: 1rem;
+  text-align: left;
+}
+
+.UpperGreenBlock {
+  background-color: #DCF3EB;
+}
+
+.LowerGreenBlock {
+  height: 50%;
+  background-color: #ABE0BA;
+}
+
+.BigBlock {
+  animation: showLeft 1.2s;
+}
+
+@keyframes showLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=Content.module.css.map */

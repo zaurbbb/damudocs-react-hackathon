@@ -18,4 +18,19 @@ input:-webkit-autofill:active {
   position: relative;
 }
 
+.p-h1 {
+  font-size: 1.44rem;
+}
+.p-h2 {
+  font-size: 1rem;
+  color: #555555;
+}
+.p-h5 {
+  font-size: 0.833rem;
+}
+.p-h5-right {
+  font-size: 0.833rem;
+  text-align: right;
+}
+
 /*# sourceMappingURL=app.css.map */
