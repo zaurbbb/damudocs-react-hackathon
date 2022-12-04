@@ -3,7 +3,8 @@
 .Container
   display: flex
   width: 100%
-
+  height: 100vh
+  overflow: hidden
 
 .GreenBlocks
   width: 45%
@@ -23,16 +24,10 @@
 .LowerGreenBlock
   height: 50%
   background-color: $primary
+  overflow-x: scroll
 
 .BigBlock
   animation: showLeft 1.2s
-
-
-
-@keyframes showLeft
-  from
-    opacity: 0
-    transform: translateX(-50px)
-  to
-    opacity: 1
-
+  width: 65%
+  overflow-x: hidden
+  overflow-y: scroll

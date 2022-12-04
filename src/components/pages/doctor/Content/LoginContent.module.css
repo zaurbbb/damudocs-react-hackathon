@@ -30,14 +30,4 @@
   animation: showLeft 1.2s;
 }
 
-@keyframes showLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /*# sourceMappingURL=LoginContent.module.css.map */

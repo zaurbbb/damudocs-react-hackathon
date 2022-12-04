@@ -1,3 +1,33 @@
+.HistoriesContainer {
+  margin: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
+  height: 50vh;
+  width: 41rem;
+  background-color: #F6F8F9;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.HistoriesContainer p {
+  margin: 0 !important;
+  text-align: left;
+}
+.HistoriesContainer a {
+  text-decoration: none;
+  color: #111111;
+}
+.HistoriesContainer div:first-child {
+  display: flex;
+}
+.HistoriesContainer div:first-child p {
+  justify-content: flex-start;
+}
+.HistoriesContainer div:first-child div {
+  justify-content: flex-end;
+}
+
 .FormContainer {
   margin: 1rem;
   padding: 1rem 1rem 2rem 1rem;

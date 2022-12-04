@@ -25,6 +25,10 @@ input:-webkit-autofill:active {
   font-size: 1.2rem;
   color: #555555;
 }
+.p-h3 {
+  font-size: 1rem;
+  color: #555555;
+}
 .p-h5 {
   font-size: 0.833rem;
 }
