@@ -264,10 +264,8 @@ const DashboardBig = () => {
                     </List>
                 </div>
             </div>
-            <div
-                className={css.FormContainer}
-            >
-                <form onSubmit={handleSubmit}>
+            <div>
+                <form onSubmit={handleSubmit} className={css.FormContainer}>
                     <div>
                         <p className="p-h1">Создать запись</p>
                         <FormControl>
