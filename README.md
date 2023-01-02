@@ -10,8 +10,6 @@
 
 **[DamuDoc](https://github.com/Bioneisme/terricon_hackathon_backend)** - medical records platform for doctors.
 
-Live demo of the Front-End part: https://zaurbbb.github.io/damudocs-react-hackathon
-
 *The technical task was provided by [Terricon Valley](https://terricon.kz/ru/), during MedTech Hackathon*
 
 *Project by 13Lab.*
